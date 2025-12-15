@@ -1,16 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+.App {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
 .Header-Container {
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  z-index: -1;
 }
 
 .Header-Video {
-  position: absolute;
+  position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0.9;
   transition: opacity 1.5s ease-in-out;
+  overflow: hidden;
+  
+}
+
+.analog-clock {
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    border: 10px solid #000000;
+    position: fixed;
+    box-shadow: 0 0 20px rgba(122, 119, 119, 0.5);
+}
+
+/* Center dot */
+.analog-clock::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: #333;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+/* Hands */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 1; /* Ensure hands are above markers */
+}
+
+.hour-hand {
+    width: 6px;
+    height: 80px;
+    background: #333;
+    margin-left: -3px;
+}
+
+.minute-hand {
+    width: 4px;
+    height: 120px;
+    background: #555;
+    margin-left: -2px;
+}
+
+.second-hand {
+    width: 2px;
+    height: 130px;
+    background: #ff5722;
+    margin-left: -1px;
+}
+
+.nav-container{
+  display: flex;
+  flex-direction: row;  
+  margin: 150px auto auto auto;
+
+  gap: 20px;
+
+}
+.nav-container button {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 80px;
+  max-height: 40px;
+
 }
